@@ -1,6 +1,5 @@
 package com.example.iamstupid
 
-
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,14 +15,11 @@ class ListOfTasks : Fragment() {
 
     private var tasks: ArrayList<Task> = arrayListOf()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ) = inflater.inflate(R.layout.list_of_tasks_fragment, container, false)
 
-        return inflater.inflate(R.layout.list_of_tasks_fragment, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -9,14 +9,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val transaction = supportFragmentManager.beginTransaction()
-
         val listOfTasks = supportFragmentManager.findFragmentByTag("LIST_OF_TASK") as? ListOfTasks
             ?: ListOfTasks()
 
-        transaction.replace(R.id.frame_content, listOfTasks, "LIST_OF_TASK").addToBackStack(null)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_content, listOfTasks, "LIST_OF_TASK").addToBackStack(null)
             .commit()
-
     }
 
 

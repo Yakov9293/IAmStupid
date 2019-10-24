@@ -5,6 +5,6 @@ import java.util.*
 class Task(
     val name: String = "Заголовок задачи",
     val description: String = "Описание задачи",
-    val date: Date = Date(2019),
+    val date: Date = Date(),
     val priority: Difficulty = Difficulty.MEDIUM
 )
