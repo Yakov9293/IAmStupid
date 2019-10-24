@@ -9,25 +9,24 @@ import kotlinx.android.synthetic.main.recycler_task_elem.view.*
 
 class TaskAdapter(val items: ArrayList<Task>, val context: Context) :
     RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
-    override fun getItemCount(): Int {
-        return items.size
+
+    override fun getItemCount() = items.size
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val task: Task = items.get(position)
+        holder.headTask.text = task.name
+        holder.descriptionTask.text = task.description
+        holder.deadlineTask.text = task.date.toString()
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int){
-        holder.headTask.text = items.get(position).name
-        holder.descriptionTask.text = items.get(position).name
-        holder.deadlineTask.text = items.get(position).name
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(
-            LayoutInflater.from(context).inflate(
-                R.layout.recycler_task_elem,
-                parent,
-                false
-            )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
+        LayoutInflater.from(context).inflate(
+            R.layout.recycler_task_elem,
+            parent,
+            false
         )
-    }
+    )
+
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val headTask = view.head_task

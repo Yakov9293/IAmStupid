@@ -2,6 +2,7 @@ package com.example.iamstupid
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,12 +30,12 @@ class ListOfTasks : Fragment() {
 
         recyclerTasks.layoutManager = LinearLayoutManager(view.context)
 
-        val adapter : TaskAdapter = TaskAdapter(tasks, view.context)
+        val adapter: TaskAdapter = TaskAdapter(tasks, view.context)
         recyclerTasks.adapter = adapter
 
         addTask.setOnClickListener {
             tasks.add(Task(name = "Задача" + tasks.size))
-            adapter.notifyDataSetChanged()
+            adapter.notifyItemChanged(tasks.size - 1)
         }
     }
 

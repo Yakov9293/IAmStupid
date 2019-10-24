@@ -14,9 +14,8 @@ class MainActivity : AppCompatActivity() {
         val listOfTasks = supportFragmentManager.findFragmentByTag("LIST_OF_TASK") as? ListOfTasks
             ?: ListOfTasks()
 
-        transaction.replace(R.id.frame_content, listOfTasks, "LIST_OF_TASK")
-        transaction.addToBackStack(null)
-        transaction.commit()
+        transaction.replace(R.id.frame_content, listOfTasks, "LIST_OF_TASK").addToBackStack(null)
+            .commit()
 
     }
 
